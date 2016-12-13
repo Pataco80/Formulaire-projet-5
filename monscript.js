@@ -37,7 +37,7 @@ $(document).ready(function() {
     input_success();
     
     
-    // Si dessous le champ selectioné aura l'apparence de base
+    // Si dessous le champ selectioné aura l'apparence de base.
     function input_default(){
         $(this).parent().removeClass('has-error', 'has-warning', 'has-success'), $(this).siblings('.glyphicon').removeClass('glyphicon-remove', 'glyphicon-warning-sign', 'glyphicon-ok'), $(this).siblings('.help-block').css('display:none');
     }
@@ -54,6 +54,6 @@ $(document).ready(function() {
             $inputtext function(input_vide);
         else if(!$inputtext).val().match(/^[a-z\’\-\ ]$/i);
             $inputtext function(erreur_alpha);
-        else $inputtext function().hide.parent();
+        else $inputtext function(input_default);
     });
 });
