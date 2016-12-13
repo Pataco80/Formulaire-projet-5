@@ -28,7 +28,7 @@ $(document).ready(function() {
             $inputtext function(input_success);
         else if($inputtext).val() = "";
             $inputtext function(input_vide);
-        else if($inputtext).val() != (/^[a-z\’\-\ ]$/i);
+        else if(!$inputtext).val().match(/^[a-z\’\-\ ]$/i);
             $inputtext function(erreur_alpha);
         else $inputtext function().remove;
     });
