@@ -14,7 +14,7 @@ $(document).ready(function() {
     input_vide();
     
     function erreur_alpha(){
-        $(this).parent().addClass('has-warning'), $(this).siblings('.glyphicon').addClass('glyphicon-remove'), $(this).siblings('.help-block').text("Ce champ est obligatoire");
+        $(this).parent().addClass('has-warning'), $(this).siblings('.glyphicon').addClass('glyphicon-warning-sign'), $(this).siblings('.help-block').text("Ce champ est obligatoire");
     }
     erreur_alpha();
     
@@ -23,6 +23,15 @@ $(document).ready(function() {
     }
     input_success();
     
+    function input_default(){
+        $(this).parent().removeClass('has-error', 'has-warning', 'has-success'), $(this).siblings('.glyphicon').removeClass('glyphicon-remove', 'glyphicon-warning-sign', 'glyphicon-ok'), $(this).siblings('.help-block').addClass("sr_only");
+    }
+    input_default();
+    
+    
+    
+    
+    
     $inputtext.on('focus', 'blur', 'keyup', function(){
         if($inputtext).val() != "";
             $inputtext function(input_success);
@@ -30,6 +39,6 @@ $(document).ready(function() {
             $inputtext function(input_vide);
         else if(!$inputtext).val().match(/^[a-z\’\-\ ]$/i);
             $inputtext function(erreur_alpha);
-        else $inputtext function().remove;
+        else $inputtext function().hide.parent();
     });
 });
