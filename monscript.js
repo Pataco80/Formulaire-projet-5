@@ -47,7 +47,7 @@ $(document).ready(function() {
     
     
     
-    $inputtext.on('focus', 'blur', 'keyup', function(){
+    $inputtext.on('blur', 'keyup', function(){
         if($inputtext).val() != "";
             $inputtext function(input_success);
         else if($inputtext).val() = "";
