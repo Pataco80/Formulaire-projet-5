@@ -1,8 +1,13 @@
 $(document).ready(function() {
     // Liste des variables
-    var $inputtext = $('.input-text');
-    var $inputemail = $('input[type=email]');
+    var $champ_requis = $('input', 'select', 'textarea').attr('required');
+    var $champ_alpha = $('input').attr('patern', 'alpha');
+    var $champ_email = $('input[type=email]');
     
+    // Liste des pattern
+    
+    $pattern_alpha = "/^[a-z\’\-\ ]$/i";
+    $pattern_email = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i";
     
     /* Si un champ de texte obligatoire est vide, la fonction suivante sera executée.
     - la div parente contenant " class="form-group has-feedback" " auront la class "has-error" qui viendra s'ajouter donnant une bordure rouge au champ selectioné.
@@ -13,6 +18,12 @@ $(document).ready(function() {
         $(this).parent().addClass('has-error'), $(this).siblings('.glyphicon').addClass('glyphicon-remove'), $(this).siblings('.help-block').text("Ce champ est obligatoire !");
     }
     input_vide();
+    
+    // Si ue addresse e-mail est mal renseignée, l'erreur sera identique à un champ vide mais avec un texte de la div " class="help-block" " affichera "Addresse mail invalide !"
+    function mail_invalid(){
+        $(this).parent().addClass('has-error'), $(this).siblings('.glyphicon').addClass('glyphicon-remove'), $(this).siblings('.help-block').text("Addresse mail invalide !");
+    }
+    mail_invalid();
     
  
     /* Si un champ de texte n'a pas les charactères alphabétiques autorisés, la fonction suivante sera executée.
@@ -44,16 +55,52 @@ $(document).ready(function() {
     input_default();
     
     
+    // Traitement du formulaire
+    ('#submit').submit function(){
+        envoyer = true;
+        
+        // Traitement des champs requis
+        $champ_requis.on('blur', 'keyup', function(){
+            if ($champ_requis.val() !== ""){
+                $(this).input_success;
+            }  
+            else if ($champ_requis.val() == ""){
+                $(this).input_vide;
+                envoyer = false;
+            }
+            else {
+                $(this).input_default;
+            }
+        });
     
+        // Traitement des champs alphabetiques
+        $champ_alpha.on('blur', 'keyup', function(){
+            if ($champ_alpha.val().match($pattern_alpha)){
+                $(this).input_success;
+            }  
+            else if (!$champ_alpha.val().match($pattern_alpha)){
+                $(this).erreur_alpha;
+                envoyer = false;
+            }
+            else {
+                $(this).input_default;
+            }
+        });
+
+        // Traitement des champs Emails
+        $champ_email.on('blur', 'keyup', function(){
+            if ($champ_email.val().match($pattern_email)){
+                $(this).input_success;
+            }  
+            else if (!$champ_email.val().match($pattern_email)){
+                $(this).mail_invalid;
+                envoyer = false;
+            }
+            else {
+                $(this).input_default;
+            }
+        });  
+
+    }
     
-    
-    $inputtext.on('blur', 'keyup', function(){
-        if($inputtext).val() != "";
-            $inputtext function(input_success);
-        else if($inputtext).val() = "";
-            $inputtext function(input_vide);
-        else if(!$inputtext).val().match(/^[a-z\’\-\ ]$/i);
-            $inputtext function(erreur_alpha);
-        else $inputtext function(input_default);
-    });
 });
