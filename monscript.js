@@ -57,8 +57,8 @@ $(document).ready(function() {
     
     // Traitement du formulaire
     $(function(){
-        $('#submit').submit function(){
-            envoyer = true;
+        $('#submit').submit, function(){
+            valide = true;
         
             // Traitement des champs requis
             $champ_requis.on('blur', 'keyup', function(){
@@ -67,7 +67,7 @@ $(document).ready(function() {
                 }  
                 else if ($champ_requis.val() == ""){
                     $(this).input_vide;
-                    envoyer = false;
+                    valide = false;
                 }
                 else {
                     $(this).input_default;
@@ -81,7 +81,7 @@ $(document).ready(function() {
                 }  
                 else if (!$champ_alpha.val().match($pattern_alpha)){
                     $(this).erreur_alpha;
-                    envoyer = false;
+                    valide = false;
                 }
                 else {
                     $(this).input_default;
@@ -95,7 +95,7 @@ $(document).ready(function() {
                 }  
                 else if (!$champ_email.val().match($pattern_email)){
                     $(this).mail_invalid;
-                    envoyer = false;
+                    valide = false;
                 }
                 else {
                     $(this).input_default;
@@ -103,7 +103,7 @@ $(document).ready(function() {
             });  
 
         }
-        return envoyer;
+        return valide;
        
     });
     
