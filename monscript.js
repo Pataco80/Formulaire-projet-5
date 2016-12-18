@@ -56,51 +56,56 @@ $(document).ready(function() {
     
     
     // Traitement du formulaire
-    ('#submit').submit function(){
-        envoyer = true;
+    $(function(){
+        $('#submit').submit function(){
+            envoyer = true;
         
-        // Traitement des champs requis
-        $champ_requis.on('blur', 'keyup', function(){
-            if ($champ_requis.val() !== ""){
-                $(this).input_success;
-            }  
-            else if ($champ_requis.val() == ""){
-                $(this).input_vide;
-                envoyer = false;
-            }
-            else {
-                $(this).input_default;
-            }
-        });
+            // Traitement des champs requis
+            $champ_requis.on('blur', 'keyup', function(){
+                if ($champ_requis.val() !== ""){
+                    $(this).input_success;
+                }  
+                else if ($champ_requis.val() == ""){
+                    $(this).input_vide;
+                    envoyer = false;
+                }
+                else {
+                    $(this).input_default;
+                }
+            });
     
-        // Traitement des champs alphabetiques
-        $champ_alpha.on('blur', 'keyup', function(){
-            if ($champ_alpha.val().match($pattern_alpha)){
-                $(this).input_success;
-            }  
-            else if (!$champ_alpha.val().match($pattern_alpha)){
-                $(this).erreur_alpha;
-                envoyer = false;
-            }
-            else {
-                $(this).input_default;
-            }
-        });
+            // Traitement des champs alphabetiques
+            $champ_alpha.on('blur', 'keyup', function(){
+                if ($champ_alpha.val().match($pattern_alpha)){
+                    $(this).input_success;
+                }  
+                else if (!$champ_alpha.val().match($pattern_alpha)){
+                    $(this).erreur_alpha;
+                    envoyer = false;
+                }
+                else {
+                    $(this).input_default;
+                }
+            });
 
-        // Traitement des champs Emails
-        $champ_email.on('blur', 'keyup', function(){
-            if ($champ_email.val().match($pattern_email)){
-                $(this).input_success;
-            }  
-            else if (!$champ_email.val().match($pattern_email)){
-                $(this).mail_invalid;
-                envoyer = false;
-            }
-            else {
-                $(this).input_default;
-            }
-        });  
+            // Traitement des champs Emails
+            $champ_email.on('blur', 'keyup', function(){
+                if ($champ_email.val().match($pattern_email)){
+                    $(this).input_success;
+                }  
+                else if (!$champ_email.val().match($pattern_email)){
+                    $(this).mail_invalid;
+                    envoyer = false;
+                }
+                else {
+                    $(this).input_default;
+                }
+            });  
 
-    }
+        }
+        return envoyer;
+       
+    });
+    
     
 });
