@@ -4,8 +4,8 @@ $(document).ready(function() {
     var $champ_alpha = $('input').attr('patern', 'alpha');
     var $champ_email = $('input[type=email]');
     
-    // Liste des pattern
     
+    // Liste des pattern
     $pattern_alpha = "/^[a-z\’\-\ ]$/i";
     $pattern_email = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i";
     
@@ -100,10 +100,9 @@ $(document).ready(function() {
                 else {
                     $(this).input_default;
                 }
-            });  
-
+            });
         }
-        return valide;
+        
        
     });
     
