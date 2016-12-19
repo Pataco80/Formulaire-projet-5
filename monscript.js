@@ -57,8 +57,7 @@ $(document).ready(function() {
     
     // Traitement du formulaire
     $(function(){
-        $('#submit').submit, function(){
-            valide = true;
+
         
             // Traitement des champs requis
             $champ_requis.on('blur', 'keyup', function(){
@@ -101,7 +100,7 @@ $(document).ready(function() {
                     $(this).input_default;
                 }
             });
-        }
+
         
        
     });
