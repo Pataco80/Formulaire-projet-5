@@ -14,7 +14,7 @@ Le formulaire sera doté d'une triple validation:
 
 ## Introduction
 
-OpenClassrooms est un site de cours en ligne de type MOOC. Chaque visiteur peut à la fois être un lecteur ou un rédacteur. Les cours peuvent être réalisés aussi bien par des membres, par l'équipe du site, ou éventuellement par des professeurs d'universités ou de grandes écoles partenaires. Initialement orientée autour de la programmation informatique, la plate-forme couvre depuis 2013 des thématiques plus larges tels que le marketing, l'entrepreneuriat et les sciences.
-Il propose ainsi des parcours qui regroupent plusieurs cours pour amener l'étudiant à un métier tel que Intégrateur Web, Développeur Front-End et Développeur Back-End. Pour ce projet, nous sommes 3 élèves du parcours Intégrateur Web.
+OpenClassrooms est un site de cours en ligne de type MOOC. Chaque visiteur peut à la fois être un lecteur ou un rédacteur. Les cours peuvent être réalisés aussi bien par des membres, par l'équipe du site, ou éventuellement par des professeurs d'universités ou de grandes écoles partenaires dont IESA Multimedia. Initialement orientée autour de la programmation informatique, la plate-forme couvre depuis 2013 des thématiques plus larges tels que le marketing, l'entrepreneuriat et les sciences.
+Il propose ainsi plusieurs types de parcours, dont certains qui sont reconus par l'état, (essentiellement les Chefs de projet multimedia) et qui regroupent plusieurs cours pour amener l'étudiant à un métier tel que Intégrateur Web, Développeur Front-End et Développeur Back-End. Pour ce projet, nous etions 3 élèves du parcours Intégrateur Web. et une reorganisation est en cours.
 
-Ce parcours nous forme à un métier à fort potentiel d'embauche. Nous avons décidé de créer un outil open source pour formulaire. Notre but sera de créer plusieurs thèmes pour que le design des formulaires web se fasse plus rapidement.
+Ce parcours nous forme à un métier à fort potentiel d'embauche. Nous avons décidé de créer un outil open source pour formulaire. Notre but sera de créer une validation pour Bootstrap simple et facile a deployer.
