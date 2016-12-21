@@ -1,13 +1,13 @@
 $(document).ready(function() {
     // Liste des variables
-    var $champ_requis = $('input', 'select', 'textarea').attr('required');
-    var $champ_alpha = $('input').attr('patern', 'alpha');
-    var $champ_email = $('input[type=email]');
+    var champ_requis = $('input', 'select', 'textarea').attr('required');
+    var champ_alpha = $('input').attr('patern', 'alpha');
+    var champ_email = $('input[type=email]');
     
     
     // Liste des pattern
-    $pattern_alpha = "/^[a-z\’\-\ ]$/i";
-    $pattern_email = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i";
+    var pattern_alpha = "/^[a-z\’\-\ ]$/i";
+    var pattern_email = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i";
     
     /* Si un champ de texte obligatoire est vide, la fonction suivante sera executée.
     - la div parente contenant " class="form-group has-feedback" " auront la class "has-error" qui viendra s'ajouter donnant une bordure rouge au champ selectioné.
@@ -60,44 +60,41 @@ $(document).ready(function() {
 
         
             // Traitement des champs requis
-            $champ_requis.on('blur', 'keyup', function(){
+            $champ_requis.on('keyup', function(){
                 if ($champ_requis.val() !== ""){
-                    $(this).input_success;
+                    $(this).input_success();
                 }  
                 else if ($champ_requis.val() == ""){
-                    $(this).input_vide;
-                    valide = false;
+                    $(this).input_vide();
                 }
                 else {
-                    $(this).input_default;
+                    $(this).input_default();
                 }
             });
     
             // Traitement des champs alphabetiques
-            $champ_alpha.on('blur', 'keyup', function(){
-                if ($champ_alpha.val().match($pattern_alpha)){
-                    $(this).input_success;
+            $champ_alpha.on('keyup', function(){
+                if ($champ_alpha.val().match(pattern_alpha)){
+                    $(this).input_success();
                 }  
-                else if (!$champ_alpha.val().match($pattern_alpha)){
-                    $(this).erreur_alpha;
-                    valide = false;
+                else if (!$champ_alpha.val().match(pattern_alpha)){
+                    $(this).erreur_alpha();
                 }
                 else {
-                    $(this).input_default;
+                    $(this).input_default();
                 }
             });
 
             // Traitement des champs Emails
-            $champ_email.on('blur', 'keyup', function(){
-                if ($champ_email.val().match($pattern_email)){
+            $champ_email.on('keyup', function(){
+                if ($champ_email.val().match(pattern_email)){
                     $(this).input_success;
                 }  
-                else if (!$champ_email.val().match($pattern_email)){
-                    $(this).mail_invalid;
-                    valide = false;
+                else if (!$champ_email.val().match(pattern_email)){
+                    $(this).mail_invalid();
                 }
                 else {
-                    $(this).input_default;
+                    $(this).input_default();
                 }
             });
 
