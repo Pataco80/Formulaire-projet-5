@@ -1,27 +1,26 @@
-$(document).ready(function() {
+$(document).ready(function(){
 	// Liste des variables de champs
-	/*var firstname = $('#first-name'),
-			lastname = $('#last-name'),
-			email = $('#email'),
-			service = $('#service'),
-			sujet = $('#sujet'),
-			message = $('#message');*/
+	var $champs	= $('input', 'textarea', 'select');
+			
 	
-	// Liste de variables d'attributs
-	//var champ_obligatoire = $("*").data("data-validation","true");
-	//var champ_alpha = $("input[type:text]").data("validation","alpha");
 	
-
+	function haserror($champs){
+			$(this).parent(".form-group").addClass("has-error");
+			$(this).siblings(".control-label").addClass("has-error");
+			$(this).next(".glyphicon").addClass("glyphicon-remove");
+			$(this).siblings(".help-block").text("Veuillez");
+	}
+	
+	
 	$(function(){
-		var requis = $(".form-control").data("validation") === true;
-		$("requis").blur(function(){
-			if ($(this).val() == "") {
-					$(this).css("background-color", "red");
-			}else {
-				$(this).css("background-color", "yellow");
+		$champs.blur(function(e){
+			e.preventDefault();
+			if ($champs.is("required").val() == ""){
+				haserror($champs);
+			}else{
+				$(this).css({borderColor:'green'});
 			}
 		});
-		console.log("#first-name");
 	});
 	
 });
