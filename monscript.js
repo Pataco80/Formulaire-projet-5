@@ -65,7 +65,7 @@ $(document).ready(function() {
     $(function(){
             
             // Traitement des champs requis
-            champ_requis.on('keyup', function(){
+            champ_requis.on('blur', function(){
                 if ($champ_requis.val() !== ""){
                     $(this).input_success();
                 }  
