@@ -6,11 +6,6 @@ $(document).ready(function() {
 
 
     
-    // Liste des pattern
-    /* Liste des pattern
-    var pattern_alpha = "/^[a-z\’\-\ ]$/i";
-    var pattern_email = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i";
-    */
        function input_reset(){
         champs.parent().removeClass('has-error','has-warning','has-success');
         champs.siblings('.glyphicon').removeClass('glyphicon-remove','glyphicon-warning','glyphicon-success');
