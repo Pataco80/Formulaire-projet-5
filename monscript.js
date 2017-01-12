@@ -60,13 +60,13 @@ $(document).ready(function() {
     $(function(){
             
             // Traitement des champs requis
-            champ_requis.on('blur', function(){
-                if ($champ_requis.val() !== ""){
-                    $(this).input_success();
-                }  
-                else if ($champ_requis.val() == ""){
-                    $(this).input_vide();
-                }  
+            $('#first-name').on("mouseover", function(){
+                if $('#first-name').val() == ""){
+                    $('#first-name').css("background-color","#00FF00");
+                }):  
+                /*else {
+                    $('#first-name').css("background-color","#FF0000");
+                }*/  
 
             });
         });
