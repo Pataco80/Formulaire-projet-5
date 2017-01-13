@@ -1,6 +1,7 @@
 $(document).ready(function(){
    // Premières variables
-   var champs = $('.form-control[data-valid]');
+   var champs = $('.form-control');
+   //var champs = $('.form-control').data('data-valid','oui');
    //variables
    var submitform = true;
    // Fonctions
@@ -8,10 +9,23 @@ $(document).ready(function(){
       $(this).parent().siblings().removeClass('has-error glyphicon-remove');
    }
    function input_vide(champs) {
-      $(this).parent('.form-group').addClass('has-error');
-      $(this).siblings('.glyphicon').addClass('glyphicon-remove').css('display','inline-bloc');
-      $(this).siblings('.help-block').css('display','block').text("Erreur");
+      champs.parent('.form-group').addClass('has-error');
+      champs.siblings('.glyphicon').addClass('glyphicon-remove').css('display','inline-bloc');
+      champs.siblings('.help-block').css('display','block').text("Erreur");
    }
+   
+   function input_sccess(champs) {
+      champs.parent('.form-group').addClass('has-success');
+      champs.siblings('.glyphicon').addClass('glyphicon-ok');
+      champs.siblings('.help-block').css('display','none').text("");
+   }
+   
+   /* Controles directs
+   $('.form-control').keyup(function(){
+      if(champs.val() == ""){
+         input_vide(champs);
+      }
+   });*/
    
    //Soumission
    $('#formulaire').submit(function(){
@@ -19,9 +33,7 @@ $(document).ready(function(){
          input_vide(champs);
          submitform = false;
       }else{
-         champs.parent('.form-group').addClass('has-success');
-         champs.siblings('.glyphicon').addClass('glyphicon-ok');
-         champs.siblings('.help-block').css('display','none').text("");
+         input_sccess(champs);
       }
       return submitform;
       
