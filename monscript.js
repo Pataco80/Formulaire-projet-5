@@ -1,42 +1,54 @@
 $(document).ready(function(){
-   // Premières variables
-   var champs = $('.form-control');
+   // Variables globales
+   var $champs = $(".form-control");
+   var $submit = $('button[type="submit"]');
+   var $reset = $('button[type="reset"]');
+   
+   // Variables personnelles
+   var $firstname = $('#first-name'),
+       $lastname = $('#last-name'),
+       $email = $('#email'),
+       $service = $('#service'),
+       $sujet = $('#sujet'),
+       $message = $('#message');
+   
    //var champs = $('.form-control').data('data-valid','oui');
    //variables
    var submitform = true;
    // Fonctions
-   function removing_inputs(champs){
-      $(this).parent().siblings().removeClass('has-error glyphicon-remove');
+   function removing_inputs($champs){  $champs.parent().siblings().removeClass('has-error glyphicon-remove');
    }
-   function input_vide(champs) {
-      champs.parent('.form-group').addClass('has-error');
-      champs.siblings('.glyphicon').addClass('glyphicon-remove').css('display','inline-bloc');
-      champs.siblings('.help-block').css('display','block').text("Erreur");
-   }
-   
-   function input_sccess(champs) {
-      champs.parent('.form-group').addClass('has-success');
-      champs.siblings('.glyphicon').addClass('glyphicon-ok');
-      champs.siblings('.help-block').css('display','none').text("");
+   function input_vide($champs){
+      $champs.parent('.form-group').addClass('has-error');
+      $champs.siblings('.glyphicon').addClass('glyphicon-remove').css('display','inline-bloc');
+      $champs.siblings('.help-block').css('display','block').text("Erreur");
    }
    
-   /* Controles directs
-   $('.form-control').keyup(function(){
-      if(champs.val() == ""){
-         input_vide(champs);
+   function input_sccess($champs) {
+      $champs.parent('.form-group').addClass('has-success');
+      $champs.siblings('.glyphicon').addClass('glyphicon-ok');
+      $champs.siblings('.help-block').css('display','none').text("");
+   }
+   
+   //Controles directs
+   $champs.on('keyup blur', function(){
+      if($(this).val() == ""){
+         input_vide($champs);
+      }else{
+         input_sccess($champs);
       }
-   });*/
+   });
    
    //Soumission
-   $('#formulaire').submit(function(){
-      if(champs.val() == ""){
-         input_vide(champs);
-         submitform = false;
+   $submit.on('click', function(){
+      validform = true;
+      if($champs.val() == ""){
+         input_vide($champs);
+         validform = false;
       }else{
-         input_sccess(champs);
+         input_sccess($champs);
       }
-      return submitform;
-      
+      return validform;
    });
-   console.log(submitform);
+
 });
