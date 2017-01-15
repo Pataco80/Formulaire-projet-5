@@ -11,10 +11,12 @@ $(document).ready(function(){
        $service = $('#service'),
        $sujet = $('#sujet'),
        $message = $('#message');
+
    
-   //var champs = $('.form-control').data('data-valid','oui');
-   //variables
-   var submitform = true;
+   //Arrays
+   
+   
+   
    // Fonctions
    function removing_inputs($champs){  $champs.parent().siblings().removeClass('has-error glyphicon-remove');
    }
