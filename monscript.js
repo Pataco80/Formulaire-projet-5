@@ -14,30 +14,37 @@ $(document).ready(function(){
 
    
    //Arrays
-   
+   var $inputs_control = [
+      $firstname,
+      $lastname,
+      $email,
+      $service,
+      $sujet,
+      $message
+   ]
    
    
    // Fonctions
-   function removing_inputs($champs){  $champs.parent().siblings().removeClass('has-error glyphicon-remove');
+   function removing_inputs($inputs_control){  $(this).parent().siblings().removeClass('has-error glyphicon-remove');
    }
-   function input_vide($champs){
-      $champs.parent('.form-group').addClass('has-error');
-      $champs.siblings('.glyphicon').addClass('glyphicon-remove').css('display','inline-bloc');
-      $champs.siblings('.help-block').css('display','block').text("Erreur");
-   }
-   
-   function input_sccess($champs) {
-      $champs.parent('.form-group').addClass('has-success');
-      $champs.siblings('.glyphicon').addClass('glyphicon-ok');
-      $champs.siblings('.help-block').css('display','none').text("");
+   function input_vide($inputs_control){
+      $(this).parent('.form-group').addClass('has-error');
+      $(this).siblings('.glyphicon').addClass('glyphicon-remove').css('display','inline-bloc');
+       $(this).siblings('.help-block').css('display','block').text("Erreur");
    }
    
-   //Controles directs
-   $champs.on('keyup blur', function(){
+   function input_sccess($inputs_control) {
+      $(this).parent('.form-group').addClass('has-success');
+      $(this).siblings('.glyphicon').addClass('glyphicon-ok');
+      $(this).siblings('.help-block').css('display','none').text("");
+   }
+   
+   //Controles directs à la frappe
+   $inputs_control.on('keyup blur', function(){
       if($(this).val() == ""){
-         input_vide($champs);
+         input_vide($(this));
       }else{
-         input_sccess($champs);
+         input_sccess($(this));
       }
    });
    
